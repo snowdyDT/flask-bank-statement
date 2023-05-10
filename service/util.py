@@ -50,3 +50,21 @@ def get_data_client(text: str) -> dict:
     }
 
     return result
+
+
+def split_text_transaction(text: str) -> list:
+    """
+    Разделить текст (таблица транзакции) через каждую 3 '\n'
+    :param text: Текст (таблица транзакции)
+    :return: Список содержащий информацию про каждую транзакцию
+    """
+    lines = text.split('\n')
+
+    transaction_list = []
+
+    for i in range(0, len(lines), 3):
+        substr = '\n'.join(lines[i:i + 3])
+        transaction_list.append(substr)
+
+    return transaction_list
+
