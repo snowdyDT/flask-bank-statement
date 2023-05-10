@@ -20,6 +20,7 @@ def bank_statement():
     statement = base64.b64decode(data['base64-bank_statement'])
 
     text = util.read_pdf(statement=statement)
+    data_client = util.get_data_client(text=text)
 
     # TODO: необходимо обработать полученную банковскую выписку и получить информацию о транзакциях
     transactions = []
